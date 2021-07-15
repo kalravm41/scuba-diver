@@ -1,0 +1,47 @@
+<!Doctype <!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src= 'https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js'></script>
+        <script src= './scuba_diver.js'></script>
+        <script src= './coin.js'></script>
+        <script src= './fish.js'></script>
+    </head>
+
+    <body>
+        <a-scene background= 'color: #fff'>
+            <a-entity id="look" look-controls camera position="0 10 35"></a-entity>
+
+            <a-assets timeout= '10000'>
+                <a-asset-item
+                id="island"
+                src="./island/Bay_1250.gltf"/>
+
+                <a-asset-item
+                id="scuba_diver"
+                src="./scuba_diver/scene.gltf"/>
+
+                <a-asset-item
+                id="chest1"
+                src="./chest1/model.gltf"/>
+
+                <a-asset-item
+                id="chest2"
+                src="./chest2/model.gltf"/>
+
+                <img 
+                id= 'bg' 
+                src="./background.jpg"/>
+            </a-assets>
+
+            <a-sky id= 'rg' src='#bg' opacity= '0.5' scuba-island></a-sky>
+            <!-- <a-sphere id='bg' src='#bg' radius= '40' opacity= '0.5' ></a-sphere> -->
+            <a-entity position= '0 0 0' scale= '0.5 0.5 0.5' gltf-model= '#island' scuba-island></a-entity>
+            <a-entity position= '-5 -1 13' scale= '0.1 0.1 0.1' rotation= '0 90 0' gltf-model= '#scuba_diver' scuba ></a-entity>
+            <a-entity id= 'chest' position= '0 -18 5' rotation= '0 0 0' scale= '10 10 10' gltf-model= '#chest1' coins fishes></a-entity>
+        </a-scene>
+    </body>
+
+</html>
